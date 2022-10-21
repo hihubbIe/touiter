@@ -1,0 +1,107 @@
+[
+	{
+		"id": "1",
+		"userid": "user-1",
+		"content": "Hello world!",
+		"date": "20/10/2022",
+		"attachments": []
+	},
+	{
+		"id": "2",
+		"userid": "user-1",
+		"content": "Hello user 1",
+		"date": "20/10/2022",
+		"attachments": []
+	},
+	{
+		"id": "3",
+		"userid": "user-2",
+		"content": "I love MSI with MD",
+		"date": "20/10/2022",
+		"attachments": []
+	},
+	{
+		"id": "4",
+		"userid": "user-1",
+		"content": "I don't at all",
+		"date": "20/10/2022",
+		"attachments": []
+	},
+	{
+		"id": "5",
+		"userid": "user-3",
+		"content": "Hello both of you",
+		"date": "20/10/2022",
+		"attachments": []
+	},
+	{
+		"id": "6",
+		"userid": "user-1",
+		"content": "Hey !",
+		"date": "20/10/2022",
+		"attachments": []
+	},
+	{
+		"id": "7",
+		"userid": "user-2",
+		"content": "Hola, welcome to fake twitter",
+		"date": "20/10/2022",
+		"attachments": []
+	},
+	{
+		"id": "8",
+		"userid": "user-3",
+		"content": "Thanks",
+		"date": "20/10/2022",
+		"attachments": []
+	},
+	{
+		"id": "2",
+		"userid": "user-1",
+		"content": "Hello user 1",
+		"date": "20/10/2022",
+		"attachments": []
+	},
+	{
+		"id": "3",
+		"userid": "user-2",
+		"content": "I love MSI with MD",
+		"date": "20/10/2022",
+		"attachments": []
+	},
+	{
+		"id": "4",
+		"userid": "user-1",
+		"content": "I don't at all",
+		"date": "20/10/2022",
+		"attachments": []
+	},
+	{
+		"id": "5",
+		"userid": "user-3",
+		"content": "Hello both of you",
+		"date": "20/10/2022",
+		"attachments": []
+	},
+	{
+		"id": "6",
+		"userid": "user-1",
+		"content": "Hey !",
+		"date": "20/10/2022",
+		"attachments": []
+	},
+	{
+		"id": "7",
+		"userid": "user-2",
+		"content": "Hola, welcome to fake twitter",
+		"date": "20/10/2022",
+		"attachments": []
+	},
+	{
+		"id": "8",
+		"userid": "user-3",
+		"content": "Thanks",
+		"date": "20/10/2022",
+		"attachments": []
+	}
+]
