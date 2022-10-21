@@ -1,24 +1,27 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
 import Touit from '../../models/touit.model';
-import messages from '../../static/messages.json';
-
 export interface FeedState {
     touits: Touit[];
 }
 
 const initialState: FeedState = {
-    touits: messages,
+    touits: [],
 };
 
 export const feedSlice = createSlice({
   name: 'feed',
   initialState,
-  reducers: {},
+  reducers: {
+    setAll: (state, action: PayloadAction<Touit[]>) => {
+      state.touits = action.payload;
+    }
+  },
 });
 
 const selectTouits = (state: RootState) => state.feed.touits;
 
+export const reducers = feedSlice.actions;
 export const selectors = {
     selectTouits
 }

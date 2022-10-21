@@ -9,7 +9,7 @@ function App() {
     <Container className='App' style={{width: '100vw'}}>
       <Grid centered columns={3}>
         <Grid.Column>
-          <Container style={{position: 'sticky', margin: '2vh', height: '100%'}}>
+          <Container style={{position: 'sticky', margin: '2vh', minHeight: '100vh'}}>
             <Content />
 
             <Rail close position='left'>

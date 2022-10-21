@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
-import { reducers, selectors } from './menuSlice';
+import { reducers, selectors } from '../../features/menu/menuSlice';
 import { Menu } from 'semantic-ui-react';
 
 function MenuFeature() {

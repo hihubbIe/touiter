@@ -7,6 +7,8 @@ export const store = configureStore({
     menu: menuReducer,
     feed: feedReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat()
 });
 
 export type AppDispatch = typeof store.dispatch;
