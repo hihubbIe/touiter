@@ -1,11 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
 import User from '../../models/user.model';
-export interface FeedState {
+export interface TouitState {
   touitUsers: User[];
 }
 
-const initialState: FeedState = {
+const initialState: TouitState = {
   touitUsers: [],
 };
 

@@ -5,6 +5,8 @@ import touitReducer from '../features/touit/slice';
 import profileReducer from '../features/profile/slice';
 import feedSearchReducer from '../features/feedSearch/slice';
 import modalReducer from '../features/modal/slice';
+import newTouitReducer from '../features/newTouit/slice';
+import loginReducer from '../features/login/slice';
 
 export const store = configureStore({
   reducer: {
@@ -14,6 +16,8 @@ export const store = configureStore({
     profile: profileReducer,
     feedSearch: feedSearchReducer,
     modal: modalReducer,
+    newTouit: newTouitReducer,
+    login: loginReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat()

@@ -1,12 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
 
-export interface MenuState {
+export interface ModalState {
   open: boolean;
   contentQueue: {type: string, props: any}[];
 }
 
-const initialState: MenuState = {
+const initialState: ModalState = {
   open: false,
   contentQueue: [],
 };

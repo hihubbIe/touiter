@@ -7,7 +7,7 @@ export interface ProfileState {
 
 const initialState: ProfileState = {
     profile: {
-      _id: 'string',
+      _id: 'MilesEdgeworth',
       id: 'MilesEdgeworth',
       firstname: 'Miles',
       lastname: 'Edgeworth',

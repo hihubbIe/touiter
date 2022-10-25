@@ -16,6 +16,9 @@ export const feedSlice = createSlice({
   reducers: {
     setAll: (state, action: PayloadAction<Touit[]>) => {
       state.touits = action.payload;
+    },
+    addOne: (state, action: PayloadAction<Touit>) => {
+      state.touits.push(action.payload);
     }
   },
 });
