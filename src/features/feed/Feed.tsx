@@ -1,13 +1,14 @@
 import React from 'react';
-import { List } from 'semantic-ui-react';
-import { selectors } from '../../features/feed/feedSlice';
-import { retrieveTouits } from './touits';
 import { connect } from 'react-redux';
-import Touit from '../../features/touit/Touit';
+import { List, Segment } from 'semantic-ui-react';
+import { selectors } from './slice';
+import * as actions from './actions';
+import TouitComponent from '../../features/touit/Touit';
+import Touit from '../../models/touit.model';
 
 interface IProps {
 	retrieveTouits: any,
-	touits: any[],
+	touits: Touit[],
 }
 
 const mapStateToProps = (state: any) => {
@@ -24,12 +25,17 @@ class FeedComponent extends React.Component<IProps> {
 
 	render() {
 		const { touits } = this.props;
+		if (touits.length === 0) return (
+			<Segment>
+				Nothing to see...
+			</Segment>
+		)
 		return (
 			<List>
-				{touits.map((item, index) => <Touit msg={item} key={index} />)}
+				{touits.map((item, index) => <TouitComponent msg={item} key={index} />)}
 			</List>
 		)
 	}
 }
 
-export default connect(mapStateToProps, { retrieveTouits })(FeedComponent);
+export default connect(mapStateToProps, actions)(FeedComponent);

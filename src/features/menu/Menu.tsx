@@ -1,15 +1,15 @@
 import React from 'react';
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
-import { reducers, selectors } from '../../features/menu/menuSlice';
+import { reducers, selectors } from './slice';
 import { Menu } from 'semantic-ui-react';
 
 function MenuFeature() {
     const selected = useAppSelector(selectors.selectCount);
     const dispatch = useAppDispatch();
 	const items = [
-		{ key: 'feed', active: false, name: 'Feed' },
-		{ key: 'notifs', active: false, name: 'Notifications' },
-		{ key: 'settings', active: false, name: 'Settings' },
+		{ key: 'feed', active: false, icon: 'home', name: 'Feed' },
+		{ key: 'notifs', active: false, icon: 'bell', name: 'Notifications' },
+		{ key: 'settings', active: false, icon: 'cog', name: 'Settings' },
 	]
     items[selected].active = true;
 	return (

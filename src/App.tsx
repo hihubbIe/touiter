@@ -1,8 +1,12 @@
 import React from 'react';
-import { Container, Grid, Rail, Segment, Placeholder, Divider, Input } from 'semantic-ui-react';
+import { Container, Grid, Rail, Segment, Icon, Label, Message, Divider } from 'semantic-ui-react';
 import Menu from './features/menu/Menu';
 import Content from './features/content/Content';
+import FeedSearch from './features/feedSearch/FeedSearch';
+import Modal from './features/modal/Modal';
+import ProfilePreview from './features/profile/profilePreview';
 import './App.css';
+import LogoutFeature from './features/logout/Logout';
 
 function App() {
   return (
@@ -14,31 +18,25 @@ function App() {
 
             <Rail close position='left'>
               <Container style={{position: 'sticky', top: '2vh', width: '100%'}}>
-                  <Menu />
-                  <Segment>My profile preview</Segment>
+                <Message size='large'><Icon name='edit outline'/><b>Touiter</b></Message>
+                <Menu />
+                <ProfilePreview />
+                <Divider clearing />
+                <LogoutFeature />
               </Container>
             </Rail>
 
             <Rail close position='right'>
               <Container style={{position: 'sticky', top: '2vh'}}>
                 <Segment>
-                  <Input fluid icon='search' placeholder='Search...' />
-                  <Divider clearing />
-                  <Placeholder>
-                    <Placeholder.Paragraph>
-                      <Placeholder.Line />
-                      <Placeholder.Line />
-                      <Placeholder.Line />
-                      <Placeholder.Line />
-                      <Placeholder.Line />
-                    </Placeholder.Paragraph>
-                  </Placeholder>
+                  <FeedSearch />
                 </Segment>
               </Container>
             </Rail>
           </Container>
         </Grid.Column>
       </Grid>
+      <Modal />
     </Container>
   );
 }

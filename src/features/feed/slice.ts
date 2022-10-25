@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
 import Touit from '../../models/touit.model';
+
 export interface FeedState {
     touits: Touit[];
 }
@@ -19,7 +20,7 @@ export const feedSlice = createSlice({
   },
 });
 
-const selectTouits = (state: RootState) => state.feed.touits;
+const selectTouits = (state: RootState) => state.feed.touits.filter(touit => touit.content?.includes(state.feedSearch.filter));
 
 export const reducers = feedSlice.actions;
 export const selectors = {

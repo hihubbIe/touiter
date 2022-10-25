@@ -1,7 +1,9 @@
 export default class Touit {
-  id?: string;
-  userid?: string;
-  content?: string;
-  date?: string;
-  attachment?: string[];
+  id: string = '-1';
+  userid: string = 'id';
+  content: string = '';
+  date: string = '2020-10-08';
+  attachments: string[] = [];
+  replyTo?: string;
+  likes: string[] = [];
 }

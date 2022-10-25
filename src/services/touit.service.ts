@@ -1,7 +1,7 @@
 import http from '../http-common';
 
 function findAll() {
-  return http.get('/touits');
+  return http.get('/tweet');
 }
 
 export const touitService = {

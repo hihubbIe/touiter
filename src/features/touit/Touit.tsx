@@ -1,48 +1,65 @@
 import React from 'react';
-import { Segment, Image, Header, Label, Placeholder, Container, List, Modal } from 'semantic-ui-react';
+import { connect } from 'react-redux';
+import { Segment, Image, Label, List, Grid, Icon, Container, Divider } from 'semantic-ui-react';
+import User from '../../models/user.model';
+import { selectors } from './slice';
+import { selectors as profileSelectors } from '../profile/slice';
 import defaultImage from '../../assets/default_icon.jpg'
-import Touit from '../../models/touit.model';
+import TouitModel from '../../models/touit.model';
+import * as actions from '../touit/actions';
 
 interface IProps {
-	msg: Touit,
+	profile?: User;
+	user?: User;
+	msg: TouitModel;
+	getUser?: any;
+	openDetails?: any;
+	openProfile?: any;
 }
 
-function FeedMessageComponent({msg}: IProps) {
-	const [open, setOpen] = React.useState(false);
-	return (
-		<List.Item>
-			<Modal
-				open={open}
-				onClose={() => setOpen(false)}
-				onOpen={() => setOpen(true)}
-				dimmer='blurring'
-			>
-				<Modal.Header>Message</Modal.Header>
-				<Modal.Content>
-					{msg?.content}
-				</Modal.Content>
-			</Modal>
-			<Segment>
-				<Container style={{display: 'flex', flexDirection: 'column'}}>
-					<Header size='small' floated='left'>
-						<Image circular src={defaultImage} />{msg?.userid}
-					</Header>
-					<div style={{paddingTop: '1%', cursor: 'pointer'}} onClick={() => setOpen(true)}>
-						<Placeholder>
-							<Placeholder.Paragraph>
-								<Placeholder.Line />
-								<Placeholder.Line />
-								<Placeholder.Line />
-							</Placeholder.Paragraph>
-						</Placeholder>
-					</div>
-					<Label attached='top right'>
-						{msg?.date}
-					</Label>
-				</Container>
-			</Segment>
-		</List.Item>
-	)
+const mapStateToProps = (state: any, props: IProps) => {
+	return {
+		user: selectors.selectUserById(state, props.msg.userid),
+		profile: profileSelectors.selectProfile(state),
+	}
+};
+
+class TouitComponent extends React.Component<IProps> {
+	
+	componentDidMount(): void {
+		this.props.getUser(this.props.msg.userid);
+	}
+
+	render() {
+		const { user, msg, profile, openDetails, openProfile } = this.props;
+		const liked = profile && msg.likes.includes(profile.id);
+		return (
+			<List.Item>
+				<Segment raised>
+					<Grid columns={2}>
+						<Grid.Column width={2}>
+							<Image floated='left' verticalAlign='top' circular src={user?.photo ? user.photo : defaultImage} />
+						</Grid.Column>
+						<Grid.Column width={12} textAlign='left' verticalAlign='top'>
+							<div style={{cursor: 'pointer'}} onClick={() => openProfile({ user })}><b>{user?.id}</b></div>
+							<p aria-multiline onClick={() => openDetails({ msg, user, profile })} style={{cursor: 'pointer'}}>
+								{msg?.content}
+							</p>
+							<div style={{display: 'inline-flex'}}>
+								<div style={{cursor: 'pointer'}}>
+									<Icon name='comment outline' color='teal'/> 0
+								</div>
+								<div style={{cursor: 'pointer', paddingLeft: '10px'}}>
+									<Icon name={liked ? 'heart' : 'heart outline'} color='red' /> {msg.likes.length}
+								</div>
+							</div>
+						</Grid.Column>
+					</Grid>
+					<Label attached='top right'>{msg?.date}</Label>
+				</Segment>
+			</List.Item>
+		)
+	}
 }
 
-export default FeedMessageComponent;
+export default connect(mapStateToProps, actions)(TouitComponent);

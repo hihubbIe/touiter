@@ -1,5 +1,5 @@
 import touitService from '../../services/touit.service';
-import { reducers } from '../../features/feed/feedSlice';
+import { reducers } from './slice';
 
 export const retrieveTouits = () => async (dispatch: any) => {
   try {
